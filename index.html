@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="toDoListApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div ng-controller="toDoListController">
+        <h1>Lista de Tarefas Diárias</h1>
+        
+        <input type="text" ng-model="newTask" placeholder="Adicionar uma tarefa...">
+        <button ng-click="addTask()">Adicionar</button>
+        <ul>
+            <li ng-repeat="task in tasks" ng-class="{completed: task.completed}">
+                <span>{{ task.name }}</span>
+                <button ng-click="toggleCompleted(task)">Concluída</button>
+                <button ng-click="removeTask(task)">Remover</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
